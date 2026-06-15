@@ -393,7 +393,7 @@ if menu == "Database":
                     for i in range(len(raw_df)):
                         row_values = (raw_df.iloc[i].astype(str).str.lower().tolist())
 
-                        if any("masa berlaku dari" in v for v in row_values):
+                        if any("masa berlaku dari" in str(v) for v in row_values):
                             header_row = i
                             break
 
@@ -424,7 +424,7 @@ if menu == "Database":
                     if ket_col:
                         ket = str(row[ket_col]).lower()
 
-                        if "resign" in ket:
+                        if "resign" in str(ket):
                             return "Penutupan Akses"
 
                     if (pd.isna(row[masa_dari]) or pd.isna(row[masa_sd])):
