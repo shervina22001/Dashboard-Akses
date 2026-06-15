@@ -14,7 +14,7 @@ st.title("📊 Dashboard Review Akses")
 # CACHE
 # =========================================================
 
-@st.cache_data(show_spinner=False)
+@st.cache_data(show_spinner=False, ttl=3600)
 def read_excel_cached(file, header=0, sheet_name=0):
     return pd.read_excel(file, header=header, sheet_name=sheet_name, engine="openpyxl")
 
